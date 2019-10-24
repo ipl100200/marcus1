@@ -5,7 +5,8 @@ body {
 
 section p:first-child {
     color: #F00;
-    width: 300px;
+    /* width: 300px; */
+    /* do not use fixed width. see below comments */
     margin-bottom: 0px;
 }
 
@@ -32,15 +33,22 @@ h2::after {
 .s-1 {
     color: #00F;
 }
-
-span[title] {
+/** Please specify title value when you adress span
+ * It is possible that there will be multiple spans with different title arrtibutes
+ */
+span[title='Селектор атрибута'] {
     color: #40a200;
     font-weight: bold;
 }
 
 .inline-block {
     display: inline-block;
-    width: 120px;
+    /* width: 120px; */
+    /** It is bad idea to use fixed width in html elemens containing content.
+     * Content may change over the time, and you will be forced to update css. Just use padding
+     * to make your block adaptive
+     */
+    padding: 0px 20px;
     background: #ccc;
     margin: 20px 20px;
     text-align: center;
